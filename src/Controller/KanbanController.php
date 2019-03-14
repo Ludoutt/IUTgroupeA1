@@ -74,6 +74,16 @@ class KanbanController extends AbstractController
         ]);
     }
 
+    /**
+     * @Route("/{id}/show", name="show_kanban")
+     */
+    public function show(Kanban $kanban){
+        return $this->render('kanban/show.html.twig', [
+            'kanban' => $kanban,
+            
+        ]);
+    }
+
 
     /**
      * @Route("/{id}/delete", name="delete_kanban")
