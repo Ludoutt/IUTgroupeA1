@@ -62,6 +62,10 @@ class Task
      * @ORM\JoinColumn(nullable=false)
      */
     private $kanban;
+    /**
+     * @ORM\Column(type="datetime", nullable=true)
+     */
+    private $deletedAt;
 
 
     /**
@@ -178,18 +182,6 @@ class Task
     public function setPriority(?int $priority): self
     {
         $this->priority = $priority;
-
-        return $this;
-    }
-
-    public function getKanban(): ?Kanban
-    {
-        return $this->kanban;
-    }
-
-    public function setKanban(?Kanban $kanban): self
-    {
-        $this->kanban = $kanban;
 
         return $this;
     }
