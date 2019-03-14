@@ -1,0 +1,25 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Kanban{% endblock %}
+
+{% block body %}
+<h1>Vos Kanbans</h1>
+<a href="{{path('create_kanban')}}">Créer unnouveau kanban</a>
+<table>
+    <thead>
+        <th>Nom</th>
+        <th>Actions</th>
+    </thead>
+
+    <tbody>
+        {% for kanban in kanbans %}
+        <tr>
+            <td>{{kanban.name}}</td>
+            <td><a href="{{ path('edit_kanban', {'id': kanban.id}) }}">edit</a></td>
+            <td>{{ include('kanban/_delete_form.html.twig') }}</td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+
+{% endblock %}
